@@ -16,4 +16,16 @@ def SelectionSort(A):
         print("%d" %A[i],end=" ") 
 
 def BubbleSort(A):
-    pass
+    # repeatedly swaps he adjacent elements if they are in wrong order
+    # follows n number of passes where n = number of elements
+    # Time complexity O(n^2)
+    length = len(A)
+    for i in range(length):
+        for j in range(0, length-i-1):
+            if A[j] > A[j+1]:
+                A[j], A[j+1] = A[j+1], A[j]
+    
+    print("Sorted array: ")
+    for n in range(len(A)):
+        print("%d" %A[n],end=" ")
+
