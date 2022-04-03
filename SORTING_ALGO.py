@@ -1,3 +1,5 @@
+Token - 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
+
 def SelectionSort(A):
     # this algo repeadly finds out the smallest element in the array and swaps  accordingly.
     # maintains 2 arrays i.e sorted and unsorted subarrays.
@@ -29,3 +31,60 @@ def BubbleSort(A):
     for n in range(len(A)):
         print("%d" %A[n],end=" ")
 
+def InsertionSort(A):
+    # array is virtually split into sorted and unsorted array.
+    # value from the unsorted are picked and placed into sorted part
+    # Time complexity O(n^2)
+    for i in range(1, len(A)):
+        key = A[i]
+        
+        j = i-1
+        while j >= 0 and key < A[j]:
+            A[j+1] = A[j]
+            j -= 1
+        
+        A[j+1] = key
+    
+    print("Sorted Array: ")
+    for n in range(len(A)):
+        print("%d" %A[n],end=" ")
+
+def MergeSort(A):
+    # it is a divide and conquer algorithm.
+    # whole array is divided into simpler elements.
+    # Time complexity T(n) = 2T(n/2) + theta(n)
+    if len(A) > 1:
+
+        mid = len(A) // 2
+
+        L = A[:mid]
+        R = A[mid:]
+
+        MergeSort(L)
+        MergeSort(R)
+
+        i = j = k = 0
+
+        while i < len(L) and j < len(R):
+            if L[i] < R[j]:
+                A[k] = L[i]
+                i += 1
+            else:
+                A[k] = R[j]
+                j += 1
+
+            k += 1
+
+        while i < len(L):
+            A[k] = L[i]
+            i += 1
+            k += 1
+         
+        while j < len(R):
+            A[k] = R[j]
+            j += 1
+            k += 1
+
+    print("Sorted Array: ")
+    for n in range(len(A)):
+        print("%d" %A[n],end=" ")
