@@ -1,4 +1,5 @@
-Token - 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
+from array import array
+
 
 def SelectionSort(A):
     # this algo repeadly finds out the smallest element in the array and swaps  accordingly.
@@ -88,3 +89,30 @@ def MergeSort(A):
     print("Sorted Array: ")
     for n in range(len(A)):
         print("%d" %A[n],end=" ")
+
+def partition(arr, low, high):
+    pivot = arr[high]
+
+    i = low - 1
+
+    for j in range(low, high):
+        if arr[j] <= pivot:
+            i = i + 1
+            (arr[i], arr[j]) = (arr[j], arr[i])
+    
+    (arr[i+1], arr[high]) = (arr[high], arr[i+1])
+
+    return i + 1
+
+def QuickSort(arr, low, high):
+    # divide and conquer algorithm
+    # picks an element as pivot and partitions the given array around the picked pivot
+    # contains a low, high and pivot
+    # time complexity - O(logn)
+    if low < high:
+
+        pi = partition(array, low, high)
+
+        QuickSort(arr, low, pi-1)
+
+        QuickSort(arr, pi+1, high)
